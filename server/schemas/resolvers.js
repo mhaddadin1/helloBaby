@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Feeding } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -11,7 +11,7 @@ const resolvers = {
         return user;
       }
 
-      // throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError("Not logged in");
     },
   },
   Mutation: {
@@ -22,14 +22,26 @@ const resolvers = {
       return { token, user };
     },
 
-    updateUser: async (parent, args, context) => {
-      if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, {
-          new: true,
-        });
-      }
+    // updateUser: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return await User.findByIdAndUpdate(context.user._id, args, {
+    //       new: true,
+    //     });
+    //   }
 
-      throw new AuthenticationError("Not logged in");
+    //   throw new AuthenticationError("Not logged in");
+    // },
+
+    addFeeding: async (parent, { amountData }, context) => {
+      if (context.user) {
+        const updateUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { feedings: amountData } },
+          { new: true }
+        );
+
+        return updateUser;
+      }
     },
 
     login: async (parent, { email, password }) => {

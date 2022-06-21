@@ -2,11 +2,21 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id: ID
-    email: String
+    _id: ID!
+    email: String!
     password: String
-    babyName: String
-    parentName: String
+    babyName: String!
+    parentName: String!
+    feedings: [Feeding]
+  }
+
+  type Feeding {
+    _id: ID!
+    amount: Int!
+  }
+
+  input inputFeeding {
+    amount: Int!
   }
 
   type Auth {
@@ -16,6 +26,7 @@ const typeDefs = gql`
 
   type Query {
     user: User
+    # feeding: Feeding
   }
 
   type Mutation {
@@ -26,12 +37,14 @@ const typeDefs = gql`
       parentName: String!
     ): Auth
 
-    updateUser(
-      email: String
-      password: String
-      babyName: String
-      parentName: String
-    ): User
+    # updateUser(
+    #   email: String
+    #   password: String
+    #   babyName: String
+    #   parentName: String
+    # ): User
+
+    addFeeding(amountData: inputFeeding!): User
 
     login(email: String!, password: String!): Auth
   }
