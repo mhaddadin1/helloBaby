@@ -29,6 +29,7 @@ class AuthService {
 
   login(idToken) {
     // Saves user token to localStorage
+    // eslint-disable-next-line no-unused-expressions
     idToken;
     localStorage.setItem("id_token", idToken);
 

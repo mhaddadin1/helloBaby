@@ -6,16 +6,6 @@ export const LOGIN = gql`
       token
       user {
         email
-        heroName
-        charAvatar
-        stamina
-        spiritTokens {
-          name
-          description
-          image
-          type
-        }
-        wins
       }
     }
   }
@@ -25,12 +15,14 @@ export const ADD_USER = gql`
   mutation Mutation(
     $email: String!
     $password: String!
-    $heroName: String! # $charAvatar: Int
+    $babyName: String!
+    $parentName: String!
   ) {
     addUser(
       email: $email
       password: $password
-      heroName: $heroName # charAvatar: $charAvatar
+      babyName: $babyName
+      parentName: $parentName
     ) {
       token
       user {
@@ -40,34 +32,8 @@ export const ADD_USER = gql`
   }
 `;
 
-export const UPDATE_USER = gql`
-  mutation updateUser(
-    $charAvatar: String!
-    $email: String
-    $password: String
-    $heroName: String
-    $spiritTokens: [ID]
-    $wins: Int
-  ) {
-    updateUser(
-      charAvatar: $charAvatar
-      email: $email
-      password: $password
-      heroName: $heroName
-      spiritTokens: [InputSpiritToken]
-      wins: $wins
-    )
-  }
-`;
-
-export const ADD_SPIRIT_TOKEN = gql`
-  mutation Mutation($spiritToken: InputSpiritToken) {
-    addSpiritToken(spiritToken: $spiritToken) {
-      spiritTokens {
-        name
-        description
-        image
-      }
-    }
+export const ADD_FEEDING = gql`
+  mutation Mutation($amount: Number!) {
+    addFeeding(amount: $amount)
   }
 `;

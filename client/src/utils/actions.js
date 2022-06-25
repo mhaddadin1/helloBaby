@@ -1,2 +1,0 @@
-export const UPDATE_STAMINA = "UPDATE_STAMINA";
-export const UPDATE_TOKENS = "UPDATE_TOKENS";
