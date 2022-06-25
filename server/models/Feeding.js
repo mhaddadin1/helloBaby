@@ -1,15 +1,14 @@
 const mongoose = require("mongoose");
 
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 
 const feedingSchema = new Schema({
   amount: {
     type: Number,
     required: true,
-    // unique: true,
   },
 });
 
-// const Feeding = mongoose.model("Feeding", feedingSchema);
+const Feeding = mongoose.model("Feeding", feedingSchema);
 
-module.exports = feedingSchema;
+module.exports = Feeding;

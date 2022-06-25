@@ -13,6 +13,14 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+
+    // feeding: async (parent, args, context) => {
+    //   if (context.feeding) {
+    //     const feeding = await Feeding.findById(context.feeding._id);
+
+    //     return feeding;
+    //   }
+    // },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -22,25 +30,19 @@ const resolvers = {
       return { token, user };
     },
 
-    // updateUser: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return await User.findByIdAndUpdate(context.user._id, args, {
-    //       new: true,
-    //     });
-    //   }
-
-    //   throw new AuthenticationError("Not logged in");
-    // },
-
-    addFeeding: async (parent, { amountData }, context) => {
+    addFeeding: async (parent, { amount }, context) => {
       if (context.user) {
-        const updateUser = await User.findByIdAndUpdate(
+        const updateFeeding = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { feedings: amountData } },
-          { new: true }
+          {
+            $addToSet: { feedings: amount },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
         );
-
-        return updateUser;
+        return updateFeeding;
       }
     },
 

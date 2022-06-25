@@ -3,7 +3,8 @@ const bcrypt = require("bcrypt");
 
 const { Schema, model } = mongoose;
 
-const feedingSchema = require("./Feeding");
+// const feedingSchema = require("./Feeding");
+// const Feeding = require("./Feeding");
 
 const userSchema = new Schema({
   email: {
@@ -24,7 +25,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  feedings: [feedingSchema],
+  feedings: [
+    {
+      type: Number,
+    },
+  ],
 });
 
 // set up pre-save middleware to create password

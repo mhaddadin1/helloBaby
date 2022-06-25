@@ -7,16 +7,7 @@ const typeDefs = gql`
     password: String
     babyName: String!
     parentName: String!
-    feedings: [Feeding]
-  }
-
-  type Feeding {
-    _id: ID!
-    amount: Int!
-  }
-
-  input inputFeeding {
-    amount: Int!
+    feedings: [Int]
   }
 
   type Auth {
@@ -26,7 +17,6 @@ const typeDefs = gql`
 
   type Query {
     user: User
-    # feeding: Feeding
   }
 
   type Mutation {
@@ -37,14 +27,7 @@ const typeDefs = gql`
       parentName: String!
     ): Auth
 
-    # updateUser(
-    #   email: String
-    #   password: String
-    #   babyName: String
-    #   parentName: String
-    # ): User
-
-    addFeeding(amountData: inputFeeding!): User
+    addFeeding(amount: Int): User
 
     login(email: String!, password: String!): Auth
   }
