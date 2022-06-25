@@ -7,7 +7,13 @@ const typeDefs = gql`
     password: String
     babyName: String!
     parentName: String!
-    feedings: [Int]
+    feedings: [Feeding]
+  }
+
+  type Feeding {
+    _id: ID
+    amount: Int
+    createdAt: String
   }
 
   type Auth {
