@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const dateFormat = require("../utils/dateFormat");
 
 const { Schema, model } = mongoose;
 
 // const feedingSchema = require("./Feeding");
-// const Feeding = require("./Feeding");
+const Feeding = require("./Feeding");
+const feedingSchema = require("./Feeding");
 
 const userSchema = new Schema({
   email: {
@@ -26,19 +26,18 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  feedings: [
-    {
-      amount: {
-        type: Number,
-        required: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
-      },
-    },
-  ],
+  feedings: [feedingSchema],
+  // {
+  //   amount: {
+  //     type: Number,
+  //     required: true,
+  //   },
+  //   createdAt: {
+  //     type: Date,
+  //     default: Date.now,
+  //     get: (timestamp) => dateFormat(timestamp),
+  //   },
+  // },
 });
 
 // set up pre-save middleware to create password

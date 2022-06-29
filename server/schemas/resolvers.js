@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Feeding } = require("../models");
+const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -14,7 +14,7 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
 
-    // feeding: async (parent, args, context) => {
+    // feeding: async (parent, { amount }, context) => {
     //   if (context.feeding) {
     //     const feeding = await Feeding.findById(context.feeding._id);
 
@@ -30,16 +30,15 @@ const resolvers = {
       return { token, user };
     },
 
-    addFeeding: async (parent, { amount }, context) => {
+    addFeeding: async (parent, { amountData }, context) => {
       if (context.user) {
         const updateFeeding = await User.findByIdAndUpdate(
           { _id: context.user._id },
           {
-            $addToSet: { feedings: amount },
+            $push: { feedings: amountData },
           },
           {
             new: true,
-            runValidators: true,
           }
         );
         return updateFeeding;
