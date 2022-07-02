@@ -31,59 +31,61 @@ function Signup(props) {
   };
 
   return (
-    <div className="card1 my-3 ">
-      <Link to="/login">← Go to Login</Link>
+    <>
+      <div className="card1 my-3 ">
+        <Link to="/login">← Go to Login</Link>
 
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="my-top">
-          <label htmlFor="email">Email:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
+        <h2>Signup</h2>
+        <form onSubmit={handleFormSubmit}>
+          <div className="my-top">
+            <label htmlFor="email">Email:</label>
+            <input
+              placeholder="youremail@test.com"
+              name="email"
+              type="email"
+              id="email"
+              onChange={handleChange}
+            />
+          </div>
 
-        <div className="my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
+          <div className="my-2">
+            <label htmlFor="pwd">Password:</label>
+            <input
+              placeholder="******"
+              name="password"
+              type="password"
+              id="pwd"
+              onChange={handleChange}
+            />
+          </div>
 
-        <div className="  my-2">
-          <label htmlFor="parentName">Parent Name:</label>
-          <input
-            placeholder="Parent"
-            name="parentName"
-            type="parentName"
-            id="parentName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="  my-2">
-          <label htmlFor="babyName">Baby Name:</label>
-          <input
-            placeholder="Last"
-            name="babyName"
-            type="babyName"
-            id="babyName"
-            onChange={handleChange}
-          />
-        </div>
+          <div className="  my-2">
+            <label htmlFor="parentName">Parent Name:</label>
+            <input
+              placeholder="Parent"
+              name="parentName"
+              type="parentName"
+              id="parentName"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="  my-2">
+            <label htmlFor="babyName">Baby Name:</label>
+            <input
+              placeholder="Last"
+              name="babyName"
+              type="babyName"
+              id="babyName"
+              onChange={handleChange}
+            />
+          </div>
 
-        <div className="flex-center my-bot">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+          <div className="flex-center my-bot">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
 

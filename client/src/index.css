@@ -238,6 +238,10 @@ label {
   color: var(--error);
 }
 
+.tac {
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
