@@ -19,7 +19,7 @@ const Profile = () => {
 
   return (
     <>
-      <main className="center">Welcome Back</main>
+      <main className="center">Profile</main>
     </>
   );
 };

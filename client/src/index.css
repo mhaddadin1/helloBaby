@@ -21,11 +21,11 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Karla", sans-serif;
-  font-weight: 400;
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
   line-height: 1.5;
   font-size: 16px;
-  color: var(--dark);
+  /* color: var(--dark); */
 }
 
 h1,
@@ -70,22 +70,22 @@ p {
 }
 
 a {
-  color: var(--primary);
+  color: black;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 750;
 }
 
 a:hover {
   text-decoration: underline;
 }
-
+/* 
 header {
   background: var(--primary);
 }
 
 header a {
   color: var(--light);
-}
+} */
 
 button {
   /* position: absolute; */

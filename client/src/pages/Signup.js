@@ -62,7 +62,7 @@ function Signup(props) {
           <div className="  my-2">
             <label htmlFor="parentName">Parent Name:</label>
             <input
-              placeholder="Parent"
+              placeholder="Parent Name"
               name="parentName"
               type="parentName"
               id="parentName"
@@ -72,7 +72,7 @@ function Signup(props) {
           <div className="  my-2">
             <label htmlFor="babyName">Baby Name:</label>
             <input
-              placeholder="Last"
+              placeholder="Baby Name"
               name="babyName"
               type="babyName"
               id="babyName"

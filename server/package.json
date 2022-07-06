@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Baby feeding tracker for parents and babysitters",
   "main": "server.js",
   "engines": {
     "node": "16.13.2"
