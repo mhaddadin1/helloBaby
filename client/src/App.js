@@ -10,7 +10,8 @@ import { setContext } from "@apollo/client/link/context";
 
 // import { Provider } from "react-redux";s
 
-import Home from "./pages/Home";
+import Summary from "./pages/Summary";
+import Logs from "./pages/Logs";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
@@ -45,10 +46,11 @@ function App() {
           {/* <Provider store={store}> */}
           <Nav></Nav>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Summary />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/logs" element={<Logs />} />
           </Routes>
           {/* </Provider> */}
           <Footer />
