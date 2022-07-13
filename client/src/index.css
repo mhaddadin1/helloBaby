@@ -88,14 +88,13 @@ header a {
 } */
 
 button {
-  /* position: absolute; */
   width: 126px;
   height: 41px;
   left: 151px;
   top: 422px;
 
   background: linear-gradient(180deg, #f46ef6 0%, #38aff0 100%);
-  box-shadow: inset 0px 4px 4px rgb(212, 47, 212);
+  /* box-shadow: inset 0px 4px 4px rgb(212, 47, 212); */
   border-radius: 19px;
 }
 
