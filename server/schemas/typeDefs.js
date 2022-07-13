@@ -38,7 +38,7 @@ const typeDefs = gql`
       parentName: String!
     ): Auth
 
-    addFeeding(amountData: feedingInput!): User
+    addFeeding(amountData: feedingInput): User
 
     login(email: String!, password: String!): Auth
   }

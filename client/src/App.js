@@ -15,7 +15,7 @@ import Logs from "./pages/Logs";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
-import Nav from "./components/Nav";
+import Menu from "./components/Nav";
 import Footer from "./components/Footer";
 // import { Nav } from "react-bootstrap";
 
@@ -44,7 +44,7 @@ function App() {
       <Router>
         <div>
           {/* <Provider store={store}> */}
-          <Nav></Nav>
+          <Menu></Menu>
           <Routes>
             <Route path="/" element={<Summary />} />
             <Route path="/login" element={<Login />} />

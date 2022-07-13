@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
-import NavBar from "../components/Nav";
+// import Menu from "../components/Nav";
 import Auth from "../utils/auth";
 // import { Navbar } from "react-bootstrap";
 
@@ -33,7 +33,7 @@ function Login(props) {
 
   return (
     <>
-      {/* <NavBar></NavBar> */}
+      {/* <Menu></Menu> */}
       <div className="card1 my-3">
         <Link to="/signup">← Go to Signup</Link>
 

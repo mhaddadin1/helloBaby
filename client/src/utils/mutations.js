@@ -33,12 +33,10 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_FEEDING = gql`
-  mutation Mutation($amountData: feedingInput!) {
+  mutation addFeeding($amountData: feedingInput) {
     addFeeding(amountData: $amountData) {
       _id
-      email
-      parentName
-      babyName
+
       feedings {
         _id
         amount
