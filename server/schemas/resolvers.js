@@ -1,5 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Feeding } = require("../models");
+
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -16,9 +17,9 @@ const resolvers = {
 
     // feeding: async (parent, { amount }, context) => {
     //   if (context.feeding) {
-    //     const feeding = await Feeding.findById(context.feeding._id);
+    //     const feedingData = await Feeding.findById(context.feeding._id);
 
-    //     return feeding;
+    //     return feedingData;
     //   }
     // },
   },
@@ -30,12 +31,14 @@ const resolvers = {
       return { token, user };
     },
 
-    addFeeding: async (parent, { amountData }, context) => {
+    addFeeding: async (parent, { amount }, context) => {
       if (context.user) {
-        const updateFeeding = await User.findByIdAndUpdate(
+        const updateFeeding = new Feeding({ amount });
+
+        await User.findByIdAndUpdate(
           { _id: context.user._id },
           {
-            $push: { feedings: amountData },
+            $push: { feedings: updateFeeding },
           },
           {
             new: true,

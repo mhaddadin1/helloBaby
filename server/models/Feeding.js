@@ -1,7 +1,7 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
 
-const { Schema } = require("mongoose");
+const { Schema } = mongoose;
 
 const feedingSchema = new Schema({
   amount: {
@@ -15,6 +15,6 @@ const feedingSchema = new Schema({
   },
 });
 
-// const Feeding = mongoose.model("Feeding", feedingSchema);
+const Feeding = mongoose.model("Feeding", feedingSchema);
 
-module.exports = feedingSchema;
+module.exports = Feeding;

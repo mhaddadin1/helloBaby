@@ -5,7 +5,7 @@ const { Schema, model } = mongoose;
 
 // const feedingSchema = require("./Feeding");
 const Feeding = require("./Feeding");
-const feedingSchema = require("./Feeding");
+// const feedingSchema = require("./Feeding");
 
 const userSchema = new Schema({
   email: {
@@ -26,7 +26,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  feedings: [feedingSchema],
+  feedings: [Feeding.schema],
   // {
   //   amount: {
   //     type: Number,

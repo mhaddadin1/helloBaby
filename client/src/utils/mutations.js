@@ -33,7 +33,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_FEEDING = gql`
-  mutation addFeeding($amountData: feedingInput) {
+  mutation addFeeding($amountData: Int) {
     addFeeding(amountData: $amountData) {
       _id
 
