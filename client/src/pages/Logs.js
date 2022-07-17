@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_FEEDING } from "../utils/mutations";
-// import Auth from "../utils/auth";
+import Auth from "../utils/auth";
 // import { QUERY_USER } from "../utils/queries";
 
-function Logs(props) {
+function Logs() {
   // const { loading, data } = useQuery(QUERY_USER);
   const [addFeeding] = useMutation(ADD_FEEDING);
   const [formState, setFormState] = useState(0);
@@ -13,13 +13,13 @@ function Logs(props) {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutation = await addFeeding({
+    await addFeeding({
       variables: {
-        amountData: formState.amountData,
+        feedingInput: parseInt(formState.amountData),
       },
     });
-    const feedings = mutation.data.addFeeding.feedings;
-    return feedings;
+    // const feedings = mutation.data.addFeeding.feedings;
+    // return feedings;
   };
 
   const handleChange = (event) => {
