@@ -27,7 +27,7 @@ const typeDefs = gql`
 
   type Query {
     user: User
-    feeding(_id: ID): Feeding
+    # feeding(_id: ID): Feeding
   }
 
   type Mutation {

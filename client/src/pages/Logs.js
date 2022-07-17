@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_FEEDING } from "../utils/mutations";
-import Auth from "../utils/auth";
+// import Auth from "../utils/auth";
 // import { QUERY_USER } from "../utils/queries";
 
 function Logs() {
@@ -15,7 +15,7 @@ function Logs() {
     event.preventDefault();
     await addFeeding({
       variables: {
-        feedingInput: parseInt(formState.amountData),
+        amount: parseInt(formState.amount),
       },
     });
     // const feedings = mutation.data.addFeeding.feedings;
@@ -37,12 +37,12 @@ function Logs() {
         <h2>Logs</h2>
         <form onSubmit={handleFormSubmit}>
           <div className="my-top">
-            <label htmlFor="amountData">amount:</label>
+            <label htmlFor="amount">amount:</label>
             <input
-              placeholder="amountData (ounces)"
-              name="amountData"
+              placeholder="amount (ounces)"
+              name="amount"
               type="number"
-              id="amountData"
+              id="amount"
               onChange={handleChange}
             />
           </div>
