@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 
 // components
 
-import Button from "../components/Button/Button";
+// import Button from "../components/Button/Button";
 import { QUERY_USER } from "../utils/queries";
 
 const Profile = () => {

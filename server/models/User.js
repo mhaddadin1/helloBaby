@@ -7,38 +7,35 @@ const { Schema, model } = mongoose;
 const Feeding = require("./Feeding");
 // const feedingSchema = require("./Feeding");
 
-const userSchema = new Schema({
-  email: {
-    type: String,
-    required: true,
-    unique: true,
+const userSchema = new Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 5,
+    },
+    babyName: {
+      type: String,
+      required: true,
+    },
+    parentName: {
+      type: String,
+      required: true,
+    },
+    feedings: [Feeding.schema],
   },
-  password: {
-    type: String,
-    required: true,
-    minlength: 5,
-  },
-  babyName: {
-    type: String,
-    required: true,
-  },
-  parentName: {
-    type: String,
-    required: true,
-  },
-  feedings: [Feeding.schema],
-  // {
-  //   amount: {
-  //     type: Number,
-  //     required: true,
-  //   },
-  //   createdAt: {
-  //     type: Date,
-  //     default: Date.now,
-  //     get: (timestamp) => dateFormat(timestamp),
-  //   },
-  // },
-});
+
+  {
+    toJson: {
+      virtuals: true,
+    },
+  }
+);
 
 // set up pre-save middleware to create password
 userSchema.pre("save", async function (next) {

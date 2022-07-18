@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 // import { ReactComponent as Logo } from "./logo.svg";
 
 import "bootstrap/dist/css/bootstrap.min.css";

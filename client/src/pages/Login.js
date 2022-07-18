@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
-// import Menu from "../components/Nav";
 import Auth from "../utils/auth";
-// import { Navbar } from "react-bootstrap";
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
