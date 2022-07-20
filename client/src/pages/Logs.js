@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_FEEDING } from "../utils/mutations";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
 
-import Auth from "../utils/auth";
+// import Auth from "../utils/auth";
 
 function Logs() {
   const [addFeeding] = useMutation(ADD_FEEDING);
@@ -14,11 +14,11 @@ function Logs() {
   const [userFeeding, setUserFeeding] = useState([]);
 
   const { loading, data } = useQuery(QUERY_USER);
-  let user;
 
-  if (data) {
-    user = data.user;
-  }
+  useEffect(() => {
+    const feedingArr = data?.user.feedings[0].amount;
+    setUserFeeding(feedingArr);
+  }, []);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -27,6 +27,7 @@ function Logs() {
         amount: parseInt(formState.amount),
       },
     });
+    window.location.reload(false);
   };
 
   const handleChange = (event) => {
@@ -57,11 +58,7 @@ function Logs() {
         </div>
       </form>
 
-      {user ? (
-        <div>
-          <h2>Todays Log for {user.babyName}</h2>
-        </div>
-      ) : null}
+      {loading ? <div>loading</div> : <h2>Todays feedings {userFeeding}</h2>}
     </div>
   );
 }
