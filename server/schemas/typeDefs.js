@@ -21,10 +21,6 @@ const typeDefs = gql`
     user: User
   }
 
-  # input feedingInput {
-  #   amount: Int
-  # }
-
   type Query {
     user: User
   }
@@ -37,9 +33,11 @@ const typeDefs = gql`
       parentName: String!
     ): Auth
 
-    addFeeding(amount: Int): Feeding
-
     login(email: String!, password: String!): Auth
+
+    removeUser(userId: ID!): User
+
+    addFeeding(amount: Int): Feeding
   }
 `;
 

@@ -4,7 +4,7 @@ import { ADD_FEEDING } from "../utils/mutations";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
 
-// import Auth from "../utils/auth";
+import Auth from "../utils/auth";
 
 function Logs() {
   const [addFeeding] = useMutation(ADD_FEEDING);
