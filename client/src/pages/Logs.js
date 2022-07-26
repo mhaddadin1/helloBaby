@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_FEEDING } from "../utils/mutations";
+// import TodayFeeding from "../components/TodayFeeding";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
 
@@ -9,16 +10,19 @@ import { QUERY_USER } from "../utils/queries";
 function Logs() {
   const [addFeeding] = useMutation(ADD_FEEDING);
 
-  const [formState, setFormState] = useState(0);
+  const [formState, setFormState] = useState();
 
-  const [userFeeding, setUserFeeding] = useState([]);
+  // const [userFeeding, setUserFeeding] = useState({ amount: "" });
 
-  const { loading, data } = useQuery(QUERY_USER);
+  const { data } = useQuery(QUERY_USER);
 
-  useEffect(() => {
-    const feedingArr = data?.user.feedings[0].amount;
-    setUserFeeding(feedingArr);
-  }, []);
+  let user;
+
+  if (data) {
+    user = data.user;
+  }
+
+  // useEffect(() => {});
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -58,7 +62,18 @@ function Logs() {
         </div>
       </form>
 
-      {loading ? <div>loading</div> : <h2>Todays feedings {userFeeding}</h2>}
+      {user ? (
+        <>
+          <h2>Feedings for {user.babyName}</h2>
+          {user.feedings.map((feeding) => (
+            <div key={feeding}>
+              <h3>
+                {feeding.amount} Ounces : {feeding.createdAt}
+              </h3>
+            </div>
+          ))}
+        </>
+      ) : null}
     </div>
   );
 }

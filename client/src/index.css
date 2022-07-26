@@ -139,7 +139,7 @@ label {
 }
 .card1 {
   position: relative;
-  height: 610px;
+  height: auto;
 
   max-width: 600px;
   margin-left: auto;
