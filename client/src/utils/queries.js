@@ -14,8 +14,8 @@ export const QUERY_USER = gql`
         createdAt
       }
       feeding_stats {
-        totalAmount: Int
-        todayAmount: Int
+        totalAmount
+        todayAmount
       }
     }
   }
