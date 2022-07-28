@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
-  {
+  query User {
     user {
       _id
       email
@@ -12,6 +12,10 @@ export const QUERY_USER = gql`
         _id
         amount
         createdAt
+      }
+      feeding_stats {
+        totalAmount: Int
+        todayAmount: Int
       }
     }
   }

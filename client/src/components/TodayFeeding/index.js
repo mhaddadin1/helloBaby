@@ -1,22 +1,24 @@
-// import { useEffect, useState } from "react";
-// import { useQuery } from "@apollo/client";
-// import { QUERY_USER } from "../../utils/queries";
+import { useEffect, useState } from "react";
 
-// function TodayFeeding() {
-//   const { loading, data } = useQuery(QUERY_USER);
-//   const [userFeeding, setUserFeeding] = useState([]);
+import { useQuery } from "@apollo/client";
+import { QUERY_USER } from "../../utils/queries";
 
-//   useEffect(() => {
-//     const feedingArr = data?.user.feedings.map((amount) => {
-//       return {
-//         amount: amount,
-//       };
-//     });
-//     console.log(feedingArr);
-//     setUserFeeding(feedingArr);
-//   }, [data?.user.feedings]);
+function TodayFeeding() {
+  //   const [userFeeding, setUserFeeding] = useState({ amount: "" });
+  //   const { data } = useQuery(QUERY_USER);
+  //   let user;
+  //   if (data) {
+  //     user = data.user;
+  //   }
+  //   return (
+  //     <div>
+  //       {user ? (
+  //         <>
+  //           <h2>Todays total:</h2>
+  //         </>
+  //       ) : null}
+  //     </div>
+  //   );
+}
 
-//   return <div>{loading ? <div>loading</div> : <h2>{userFeeding}</h2>}</div>;
-// }
-
-// export default TodayFeeding;
+export default TodayFeeding;

@@ -52,6 +52,35 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
+// Feeding stats
+userSchema.virtual("feeding_stats").get(function () {
+  let stats = {};
+  let userFeeding = this.feedings;
+
+  function getTotalFeeding(feedings) {
+    let total = 0;
+    feedings.map((feeding) => (total += feeding.amount));
+    return total;
+  }
+
+  function getTodayFeeding(feedings) {
+    let today = new Date().toISOString().slice(0, 10);
+
+    let todaysfeeding = feedings.filter(
+      (feeding) => feeding.createdAt.toISOString().slice(0, 10) === today
+    );
+
+    let total = 0;
+    todaysfeeding.map((feeding) => (total += feeding.amount));
+    return total;
+  }
+
+  stats.totalAmount = getTotalFeeding(userFeeding);
+  stats.todayAmount = getTodayFeeding(userFeeding);
+
+  return stats;
+});
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
