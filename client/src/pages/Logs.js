@@ -66,9 +66,12 @@ function Logs() {
         <>
           <h2>Feedings for {user.babyName}</h2>
           {user.feedings.map((feeding) => (
-            <div key={feeding}>
+            <div key={feeding._id}>
               <h3>
-                {feeding.amount} Ounces : {feeding.createdAt}
+                {feeding.amount} Ounces
+                <div>
+                  {new Date(parseInt(feeding.createdAt)).toLocaleDateString()}
+                </div>
               </h3>
             </div>
           ))}

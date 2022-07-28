@@ -8,6 +8,7 @@ const typeDefs = gql`
     babyName: String!
     parentName: String!
     feedings: [Feeding]
+    # amountStats: FeedingStats
   }
 
   type Feeding {
@@ -15,6 +16,11 @@ const typeDefs = gql`
     amount: Int
     createdAt: String
   }
+
+  # type FeedingStats {
+  #   totalAmount: Int
+  #   todayAmount: Int
+  # }
 
   type Auth {
     token: ID!

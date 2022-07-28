@@ -28,8 +28,8 @@ module.exports = {
 
     return req;
   },
-  signToken: function ({ firstName, email, _id }) {
-    const payload = { firstName, email, _id };
+  signToken: function ({ parentName, email, _id }) {
+    const payload = { parentName, email, _id };
 
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
