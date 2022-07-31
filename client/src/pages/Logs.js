@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_FEEDING } from "../utils/mutations";
 import TodayFeeding from "../components/TodayFeeding";
-// import { useQuery } from "@apollo/client";
-// import { QUERY_USER } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import { QUERY_USER } from "../utils/queries";
+import LastFeeding from "../components/LastFeeding";
 
 // import Auth from "../utils/auth";
 
@@ -49,6 +50,7 @@ function Logs() {
           <button type="submit">Submit</button>
         </div>
       </form>
+      <LastFeeding />
       <TodayFeeding />
     </div>
   );
