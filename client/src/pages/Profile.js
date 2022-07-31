@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 // import { QUERY_USER } from "../utils/queries";
 import TotalFeeding from "../components/TotalFeeding";
 import TodayFeeding from "../components/TodayFeeding";
+import WeeklyFeeding from "../components/WeeklyFeeding";
 
 const Profile = () => {
   // const [earnedTk, setEarnedTk] = useState([]);
@@ -21,9 +22,15 @@ const Profile = () => {
 
   return (
     <>
-      <main className="center">Profile</main>
-      <TodayFeeding />
-      <TotalFeeding />
+      <div className="card1">
+        <TodayFeeding />
+      </div>
+      <div className="card1">
+        <WeeklyFeeding />
+      </div>
+      <div className="card1">
+        <TotalFeeding />
+      </div>
     </>
   );
 };

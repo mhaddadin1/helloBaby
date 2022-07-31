@@ -6,7 +6,7 @@ import { QUERY_USER } from "../../utils/queries";
 function LastFeeding() {
   const { loading, data } = useQuery(QUERY_USER);
 
-  const feedingArr = data?.user.feedings.slice(-1);
+  const feedingArr = data?.user.feedings.length - 1;
 
   //   let user;
   //   if (data) {
@@ -19,8 +19,8 @@ function LastFeeding() {
         <div>Loading....</div>
       ) : (
         <div>
-          <h2>Last Feeding for {data.user.babyName}</h2>
-          <h3>amount: {feedingArr.amount}</h3>
+          {/* <h2>Last Feeding for {data.user.babyName}</h2>
+          <h3>amount: {feedingArr}</h3> */}
         </div>
       )}
     </div>

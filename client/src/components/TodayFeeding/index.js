@@ -13,7 +13,7 @@ function TodayFeeding() {
     <div>
       {user ? (
         <>
-          <h2>Todays total: {user.feeding_stats.todayAmount}</h2>
+          <h2>Todays total: {user.feeding_stats.todayAmount} Ounces</h2>
         </>
       ) : null}
     </div>

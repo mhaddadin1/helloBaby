@@ -10,7 +10,6 @@ import { setContext } from "@apollo/client/link/context";
 
 // import { Provider } from "react-redux";s
 
-import Summary from "./pages/Summary";
 import Logs from "./pages/Logs";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";

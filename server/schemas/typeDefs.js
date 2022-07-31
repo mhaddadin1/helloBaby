@@ -19,6 +19,8 @@ const typeDefs = gql`
 
   type FeedingStats {
     totalAmount: Int
+    weeklyAmount: Int
+    monthlyAmount: Int
     todayAmount: Int
   }
 

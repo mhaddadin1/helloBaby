@@ -3,7 +3,7 @@
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../../utils/queries";
 
-function TotalFeeding() {
+function WeeklyFeeding() {
   const { data } = useQuery(QUERY_USER);
   let user;
   if (data) {
@@ -13,11 +13,11 @@ function TotalFeeding() {
     <div>
       {user ? (
         <>
-          <h2>Total feeding: {user.feeding_stats.totalAmount} Ounces</h2>
+          <h2>last 7 days avg: {user.feeding_stats.weeklyAmount} Ounces</h2>
         </>
       ) : null}
     </div>
   );
 }
 
-export default TotalFeeding;
+export default WeeklyFeeding;

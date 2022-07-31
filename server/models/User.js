@@ -63,6 +63,17 @@ userSchema.virtual("feeding_stats").get(function () {
     return total;
   }
 
+  function getWeeklyFeeding(feedings) {
+    let thisWeek = new Date().toISOString().slice(0, 10);
+    let weeklyFeedings = feedings.filter(
+      (feeding) => feeding.createdAt.toISOString().slice(0, 10) === thisWeek
+    );
+
+    let total = 0;
+    weeklyFeedings.map((feeding) => (total += feeding.amount));
+    return total;
+  }
+
   function getTodayFeeding(feedings) {
     let today = new Date().toISOString().slice(0, 10);
 
@@ -76,6 +87,7 @@ userSchema.virtual("feeding_stats").get(function () {
   }
 
   stats.totalAmount = getTotalFeeding(userFeeding);
+  stats.weeklyAmount = getWeeklyFeeding(userFeeding);
   stats.todayAmount = getTodayFeeding(userFeeding);
 
   return stats;
