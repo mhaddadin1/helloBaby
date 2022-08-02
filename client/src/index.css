@@ -140,6 +140,7 @@ label {
 .card1 {
   position: relative;
   height: auto;
+  min-height: 400px;
 
   max-width: 600px;
   margin-left: auto;

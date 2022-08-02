@@ -34,6 +34,7 @@ const userSchema = new Schema(
     toJson: {
       virtuals: true,
     },
+    timestamps: true,
   }
 );
 
@@ -56,13 +57,13 @@ userSchema.methods.isCorrectPassword = async function (password) {
 userSchema.virtual("feeding_stats").get(function () {
   let stats = {};
   let userFeeding = this.feedings;
-
-  function getTotalFeeding(feedings) {
-    let total = 0;
-    feedings.map((feeding) => (total += feeding.amount));
-    return total;
-  }
-
+  // total
+  // function getTotalFeeding(feedings) {
+  //   let total = 0;
+  //   feedings.map((feeding) => (total += feeding.amount));
+  //   return total;
+  // }
+  // weekly
   function getWeeklyFeeding(feedings) {
     let thisWeek = new Date().toISOString().slice(0, 10);
     let weeklyFeedings = feedings.filter(
@@ -73,7 +74,7 @@ userSchema.virtual("feeding_stats").get(function () {
     weeklyFeedings.map((feeding) => (total += feeding.amount));
     return total;
   }
-
+  // today
   function getTodayFeeding(feedings) {
     let today = new Date().toISOString().slice(0, 10);
 
@@ -86,7 +87,7 @@ userSchema.virtual("feeding_stats").get(function () {
     return total;
   }
 
-  stats.totalAmount = getTotalFeeding(userFeeding);
+  // stats.totalAmount = getTotalFeeding(userFeeding);
   stats.weeklyAmount = getWeeklyFeeding(userFeeding);
   stats.todayAmount = getTodayFeeding(userFeeding);
 
