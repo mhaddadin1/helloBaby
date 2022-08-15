@@ -32,27 +32,32 @@ function Logs() {
   };
 
   return (
-    <div className="card1 my-3">
-      <h2>Feeding Log</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="my-top">
-          <label htmlFor="amount">amount:</label>
-          <input
-            placeholder="amount (ounces)"
-            name="amount"
-            type="number"
-            id="amount"
-            onChange={handleChange}
-          />
-        </div>
+    <>
+      <div className="tac">
+        <h1>Please enter feeding amount below</h1>
+      </div>
+      <div className="card1 my-3">
+        <h2>Feeding Input</h2>
+        <form onSubmit={handleFormSubmit}>
+          <div className="my-top">
+            <label htmlFor="amount">amount:</label>
+            <input
+              placeholder="amount (ounces)"
+              name="amount"
+              type="number"
+              id="amount"
+              onChange={handleChange}
+            />
+          </div>
 
-        <div className="flex-center my-bot my-3">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-      {/* <LastFeeding /> */}
-      <TodayFeeding />
-    </div>
+          <div className="flex-center my-bot my-3">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+        {/* <LastFeeding /> */}
+        <TodayFeeding />
+      </div>
+    </>
   );
 }
 

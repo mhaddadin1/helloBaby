@@ -94,6 +94,8 @@ button {
   height: 41px;
   left: 151px;
   top: 422px;
+  color: white;
+  border-color: white;
 
   background: linear-gradient(180deg, #f0a2a2 0%, #a2ddf0 100%);
   /* box-shadow: inset 0px 4px 4px rgb(212, 47, 212); */
@@ -118,7 +120,7 @@ span[role="img"] {
 }
 
 form {
-  font-weight: bold;
+  font-weight: 100px;
 }
 
 input {
@@ -157,13 +159,14 @@ label {
   position: relative;
   height: auto;
   min-height: 400px;
+  color: white;
 
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 
   background: linear-gradient(180deg, #a2ddf0 0%, #f0a2a2 100%);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
   border-radius: 19px;
   text-align: center;
 }
