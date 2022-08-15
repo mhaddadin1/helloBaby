@@ -4,13 +4,15 @@
   border-radius: 5px;
   margin: 2px;
   text-align: center;
+  font-size: larger;
+  font-family: "Comfortaa", cursive;
 }
 
 .nav2 {
-  margin-left: 5px;
+  margin-left: 10px;
 }
-
+/* 
 .App {
-  font-family: sans-serif;
+  font-family: "Comfortaa", sans-serif;
   text-align: center;
-}
+} */

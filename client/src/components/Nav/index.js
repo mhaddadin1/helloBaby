@@ -15,7 +15,9 @@ const Menu = () => {
         bg="dark"
         variant="dark"
       >
-        <Navbar.Brand href="/profile">HelloBaby</Navbar.Brand>
+        <Navbar.Brand className="nav2" href="/profile">
+          HelloBaby
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">

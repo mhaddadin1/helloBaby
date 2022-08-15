@@ -32,13 +32,18 @@ function Signup(props) {
 
   return (
     <>
+      <div className="tac">
+        <h1>Peace of mind made simple</h1>
+        <h2>Keep track of your baby feedings</h2>
+        <h3>Sign up or Login below to get started</h3>
+      </div>
       <div className="card1 my-3 ">
         <Link to="/login">← Go to Login</Link>
 
         <h2>Signup</h2>
         <form onSubmit={handleFormSubmit}>
           <div className="my-top">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email">Email Address:</label>
             <input
               placeholder="youremail@test.com"
               name="email"

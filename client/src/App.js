@@ -44,6 +44,7 @@ function App() {
         <div>
           {/* <Provider store={store}> */}
           <Menu></Menu>
+
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />

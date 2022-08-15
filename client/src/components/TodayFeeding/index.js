@@ -14,6 +14,7 @@ function TodayFeeding() {
       {user ? (
         <>
           <h2>Todays total: {user.feeding_stats.todayAmount} Ounces</h2>
+          {/* <h3>{user.feeding.amount}</h3> */}
         </>
       ) : null}
     </div>
