@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_FEEDING } from "../utils/mutations";
 import TodayFeeding from "../components/TodayFeeding";
-import { useQuery } from "@apollo/client";
-import { QUERY_USER } from "../utils/queries";
-import LastFeeding from "../components/LastFeeding";
+// import { useQuery } from "@apollo/client";
+// import { QUERY_USER } from "../utils/queries";
+// import LastFeeding from "../components/LastFeeding";
 
 // import Auth from "../utils/auth";
 
@@ -36,7 +36,7 @@ function Logs() {
       <h2>Feeding Log</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="my-top">
-          <label htmlFor="amount">amount </label>
+          <label htmlFor="amount">amount:</label>
           <input
             placeholder="amount (ounces)"
             name="amount"
@@ -50,7 +50,7 @@ function Logs() {
           <button type="submit">Submit</button>
         </div>
       </form>
-      <LastFeeding />
+      {/* <LastFeeding /> */}
       <TodayFeeding />
     </div>
   );

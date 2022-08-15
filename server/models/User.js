@@ -57,24 +57,27 @@ userSchema.methods.isCorrectPassword = async function (password) {
 userSchema.virtual("feeding_stats").get(function () {
   let stats = {};
   let userFeeding = this.feedings;
-  // total
-  // function getTotalFeeding(feedings) {
+  // total average;
+  function getTotalFeeding(feedings) {
+    let total = 0;
+    feedings.map((feeding) => (total += feeding.amount));
+    let avg = total / feedings.length;
+    return avg.toFixed(2);
+  }
+  // weekly
+  // function getWeeklyFeeding(feedings) {
+  //   let thisWeek = new Date().toISOString().slice(0, 10);
+  //   let weeklyFeedings = feedings.filter(
+  //     (feeding) => feeding.createdAt.toISOString().slice(0, 10) === thisWeek
+  //   );
+
   //   let total = 0;
-  //   feedings.map((feeding) => (total += feeding.amount));
+  //   weeklyFeedings.map((feeding) => (total += feeding.amount));
   //   return total;
   // }
-  // weekly
-  function getWeeklyFeeding(feedings) {
-    let thisWeek = new Date().toISOString().slice(0, 10);
-    let weeklyFeedings = feedings.filter(
-      (feeding) => feeding.createdAt.toISOString().slice(0, 10) === thisWeek
-    );
-
-    let total = 0;
-    weeklyFeedings.map((feeding) => (total += feeding.amount));
-    return total;
-  }
   // today
+
+  // current day feeding
   function getTodayFeeding(feedings) {
     let today = new Date().toISOString().slice(0, 10);
 
@@ -87,8 +90,8 @@ userSchema.virtual("feeding_stats").get(function () {
     return total;
   }
 
-  // stats.totalAmount = getTotalFeeding(userFeeding);
-  stats.weeklyAmount = getWeeklyFeeding(userFeeding);
+  stats.totalAmount = getTotalFeeding(userFeeding);
+  // stats.weeklyAmount = getWeeklyFeeding(userFeeding);
   stats.todayAmount = getTodayFeeding(userFeeding);
 
   return stats;

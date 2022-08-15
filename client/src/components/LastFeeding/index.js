@@ -1,30 +1,30 @@
-// import { useEffect, useState } from "react";
+// // import { useEffect, useState } from "react";
 
-import { useQuery } from "@apollo/client";
-import { QUERY_USER } from "../../utils/queries";
+// import { useQuery } from "@apollo/client";
+// import { QUERY_USER } from "../../utils/queries";
 
-function LastFeeding() {
-  const { loading, data } = useQuery(QUERY_USER);
+// function LastFeeding() {
+//   const { data } = useQuery(QUERY_USER);
 
-  const feedingArr = data?.user.feedings.length - 1;
+//   // const feedingArr = data?.user.feedings.length - 1;
 
-  //   let user;
-  //   if (data) {
-  //     user = data.user;
-  //   }
+//   let user;
+//   if (data) {
+//     user = data.user;
+//   }
 
-  return (
-    <div>
-      {loading ? (
-        <div>Loading....</div>
-      ) : (
-        <div>
-          {/* <h2>Last Feeding for {data.user.babyName}</h2>
-          <h3>amount: {feedingArr}</h3> */}
-        </div>
-      )}
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       {user ? (
+//         <div>
+//           <h2>Todays Feedings for {data.user.babyName}</h2>
+//           {user.feedings.map((feeding) => (
+//             <h3 key={feeding._id}>amount: {feeding.amount}</h3>
+//           ))}
+//         </div>
+//       ) : null}
+//     </div>
+//   );
+// }
 
-export default LastFeeding;
+// export default LastFeeding;

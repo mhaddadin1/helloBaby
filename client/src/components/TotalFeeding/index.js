@@ -13,7 +13,9 @@ function TotalFeeding() {
     <div>
       {user ? (
         <>
-          <h2>Total feeding: {user.feeding_stats.totalAmount} Ounces</h2>
+          <h2>
+            Avg ounce per Feeding: {user.feeding_stats.totalAmount} Ounces
+          </h2>
         </>
       ) : null}
     </div>
