@@ -19,11 +19,6 @@ const Profile = () => {
 
   useEffect(() => {});
 
-  // useEffect(() => {
-  //   const tokenArray = JSON.parse(localStorage.getItem("tokens"));
-  //   setEarnedTk(tokenArray);
-  // }, []);
-
   return (
     <>
       <div className="tac">
@@ -41,14 +36,7 @@ const Profile = () => {
         <TodayFeeding />
       </div>
       <br />
-      {/* <div className="card1">
-        <WeeklyFeeding />
-      </div>
-      <br />
-      <div className="card1">
-        <MonthlyFeeding />
-      </div>
-      <br /> */}
+
       <div className="card1">
         <TotalFeeding />
       </div>

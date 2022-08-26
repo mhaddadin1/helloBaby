@@ -1,5 +1,4 @@
-// import { useEffect, useState } from "react";
-
+import img from "../../assets/images/feedingchart.jpeg";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../../utils/queries";
 
@@ -16,6 +15,8 @@ function TotalFeeding() {
           <h2>Avg Feeding: {user.feeding_stats.totalAmount} Ounces</h2>
         </>
       ) : null}
+
+      <img src={img}></img>
     </div>
   );
 }
