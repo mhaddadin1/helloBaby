@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 // components
 
@@ -29,7 +30,13 @@ const Profile = () => {
               feedings
             </h1>
           </>
-        ) : null}
+        ) : (
+          <h1>
+            No feedings added. Add a feeding to see Baby's feeding statistics.
+            <br></br>
+            <Link to="/logs">Log Feeding</Link>
+          </h1>
+        )}
       </div>
       <br />
       <div className="card1">
