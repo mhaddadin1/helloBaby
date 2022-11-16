@@ -9,6 +9,7 @@ const typeDefs = gql`
     parentName: String!
     feedings: [Feeding]
     feeding_stats: FeedingStats
+    changes: [Change]
   }
 
   type Feeding {
@@ -22,6 +23,12 @@ const typeDefs = gql`
     weeklyAmount: Int
     monthlyAmount: Int
     todayAmount: Int
+  }
+
+  type Change {
+    _id: ID
+    amount: Int
+    createdAt: String
   }
 
   type Auth {
@@ -47,6 +54,8 @@ const typeDefs = gql`
     removeUser(userId: ID!): User
 
     addFeeding(amount: Int): Feeding
+
+    addChange(amount: Int): Change
   }
 `;
 

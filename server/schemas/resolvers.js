@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Feeding } = require("../models");
+const { User, Feeding, Change } = require("../models");
 
 const { signToken } = require("../utils/auth");
 
@@ -59,6 +59,23 @@ const resolvers = {
           }
         );
         return updateFeeding;
+      }
+    },
+
+    addChange: async (parent, { amount }, context) => {
+      if (context.user) {
+        const updateChange = new Change({ amount });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          {
+            $push: { changes: updateChange },
+          },
+          {
+            new: true,
+          }
+        );
+        return updateChange;
       }
     },
   },
