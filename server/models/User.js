@@ -5,6 +5,7 @@ const { Schema } = mongoose;
 
 // const feedingSchema = require("./Feeding");
 const Feeding = require("./Feeding");
+const Change = require("./Change");
 // const feedingSchema = require("./Feeding");
 
 const userSchema = new Schema(
@@ -28,6 +29,8 @@ const userSchema = new Schema(
       required: true,
     },
     feedings: [Feeding.schema],
+
+    changes: [Change.schema],
   },
 
   {
