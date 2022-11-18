@@ -100,6 +100,50 @@ userSchema.virtual("feeding_stats").get(function () {
   return stats;
 });
 
+// change stats
+userSchema.virtual("change_stats").get(function () {
+  let stats = {};
+  let userChange = this.changes;
+  // total average;
+  function getTotalChange(changes) {
+    let total = 0;
+    changes.map((change) => (total += change.amount));
+    let avg = total / changes.length;
+    return avg.toFixed(2);
+  }
+  // weekly
+  // function getWeeklyChange(changes) {
+  //   let thisWeek = new Date().toISOString().slice(0, 10);
+  //   let weeklyChange = changes.filter(
+  //     (change) => change.createdAt.toISOString().slice(0, 10) === thisWeek
+  //   );
+
+  //   let total = 0;
+  //   weeklyChange.map((change) => (total += change.amount));
+  //   return total;
+  // }
+  // today
+
+  // current day change
+  function getTodayChange(changes) {
+    let today = new Date().toISOString().slice(0, 10);
+
+    let todayschange = changes.filter(
+      (change) => change.createdAt.toISOString().slice(0, 10) === today
+    );
+
+    let total = 0;
+    todayschange.map((change) => (total += change.amount));
+    return total;
+  }
+
+  stats.totalAmount = getTotalChange(userChange);
+
+  stats.todayAmount = getTodayChange(userChange);
+
+  return stats;
+});
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

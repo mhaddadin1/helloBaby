@@ -10,6 +10,7 @@ const typeDefs = gql`
     feedings: [Feeding]
     feeding_stats: FeedingStats
     changes: [Change]
+    change_stats: ChangeStats
   }
 
   type Feeding {
@@ -29,6 +30,13 @@ const typeDefs = gql`
     _id: ID
     amount: Int
     createdAt: String
+  }
+
+  type ChangeStats {
+    totalAmount: Float
+    # weeklyAmount: Int
+    # monthlyAmount: Int
+    todayAmount: Int
   }
 
   type Auth {
