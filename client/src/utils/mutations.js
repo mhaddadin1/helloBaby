@@ -41,3 +41,13 @@ export const ADD_FEEDING = gql`
     }
   }
 `;
+
+export const ADD_CHANGE = gql`
+  mutation Mutation($amount: Int) {
+    addChange(amount: $amount) {
+      _id
+      amount
+      createdAt
+    }
+  }
+`;

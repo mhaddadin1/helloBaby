@@ -19,6 +19,15 @@ export const QUERY_USER = gql`
         monthlyAmount
         todayAmount
       }
+      changes {
+        _id
+        amount
+        createdAt
+      }
+      change_stats {
+        totalAmount
+        todayAmount
+      }
     }
   }
 `;
