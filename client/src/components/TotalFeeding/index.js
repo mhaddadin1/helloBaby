@@ -16,7 +16,7 @@ function TotalFeeding() {
         </>
       ) : null}
 
-      <img src={img}></img>
+      <img src={img} alt=""></img>
     </div>
   );
 }
